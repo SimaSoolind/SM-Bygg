@@ -1,0 +1,296 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* 1.a-sidans layout och typsnitt */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: lightgray; /* Vit/ljus text mot mörk bakgrund */
+    line-height: 1.6;
+    background-color: #1a1a1a; /* Svart bakgrund */
+}
+/* centrera innehållet och sätta maxbredd */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+/* 2. Typografi och länkar (Guld/Brons) */
+h1, h2, h3 {
+    color: #8c835c; /* Brons/Guld färg för rubriker */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+/* 2.a länkar och knappar */
+a {
+    color: #b8860b; /* Guld färg för länkar */
+    text-decoration: none;
+    transition: all 0.3s ease; /* Mjuk övergång för hover */
+}
+/* hover-effekt för länkar */
+a:hover, a:focus {
+    color: bisque;
+    outline: 2px solid #b8860b;
+}
+/* listor och knappar */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+/* 3. Mobil-först-Meny-styling och heder (FIXAD) */
+header {
+    background-color: #120c08; /* Nästan svart header */
+    padding: 1rem 0;
+    border-bottom: none;
+}
+.header-content { /* FIX: Använder rätt klassnamn, tidigare .heder-container */
+    text-align: center;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column; /* Mobil-layout: Stapla logga och nav under varandra */
+    align-items: center;
+}
+.logo {
+    max-width: 250px; /* Justerat för att vara framträdande men inte överväldigande på mobil */
+    height: auto;
+    margin-bottom: 1rem;
+}
+.page-title, .tagline {
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 1.8rem;
+    color: lightgray;
+}
+nav ul {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+nav a {
+    padding: 0.3rem 0.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #b8860b;
+}
+nav a.active {
+    color: #101010;
+    background-color: #c38d03;
+    border-radius: 4px;
+}
+
+/* 4. Media Queries - Responsiv Design (FIXAD) */
+@media (min-width: 768px) {
+    .header-content {
+        flex-direction: row; /* Desktop-layout: Lägg logga och nav bredvid varandra */
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        text-align: left;
+    }
+    .logo {
+        max-width: 300px; /* Större logga på desktop */
+        margin-bottom: 0;
+    }
+    nav ul {
+        gap: 1.5rem;
+    }
+}
+
+/* 5. Startsidans Värderingar-sektion GRID (NU FIXAD) */
+.about-values-grid { /* FIX: Korrigerat stavfel från .about-valuse-grid */
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+.values-box {
+    background-color: #2a2a2a;
+    padding: 1.5rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+.values-box:hover { /* FIX: Korrigerat syntax för hover-effekt */
+    background-color: #3a3a3a;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    transform: translateY(-5px);
+} 
+/* värderingstitlar */
+.values-box h3 { /* FIX: Korrigerat syntax för h3 */
+    margin-bottom: 0.5rem;
+    color: #b8860b;
+}
+
+/* GRID LAYOUT (Surfplatta - 2 Kolumner) */
+@media (min-width: 600px) {
+    .about-values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* GRID LAYOUT (Desktop - 3 Kolumner) */
+@media (min-width: 992px) {
+    .about-values-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* 6. FLEXBOX för Bild/Text-layout (projektering-info) */
+.projektering-bild-och-text {
+    display: flex;
+    flex-direction: column; /* Mobil-först: Stapla */
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    align-items: center;
+}
+
+.projektering-bild-och-text img {
+    width: 100%;
+    max-width: 500px; 
+    height: auto;
+    border-radius: 6px;
+}
+
+@media (min-width: 768px) {
+    .projektering-bild-och-text {
+        flex-direction: row; /* Desktop: Sido-vid-sida */
+        align-items: flex-start;
+    }
+    
+    .projektering-bild-och-text img {
+        flex-basis: 40%; 
+        min-width: 300px;
+    }
+    
+    .projektering-text-left {
+        flex-basis: 60%;
+        padding-left: 2rem;
+    }
+}
+
+/* 7. FLEXBOX för Service Cards (Tjänster-sektion) */
+.service-card-wrapper {
+    display: flex;
+    flex-direction: column; /* Mobil: Stapla */
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+.service-card {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+.service-card img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+/* 10. CSS GRID för Referenser (projekt.html) */
+/* ... (Koden för .referens-kort-lista och li är oförändrad) ... */
+
+.referens-kort-lista img {
+    width: 100%;
+    /* Lägg till en fast höjd för alla bilder */
+    height: 200px; /* Ändra 200px till det du tycker ser bäst ut */ 
+    
+    /* NYCKELN: Fyll höjden/bredden och beskär det som inte får plats */
+    object-fit: cover; 
+    
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+/* ... (Resten av Media Queries för Grid är oförändrad) ... */
+
+@media (min-width: 768px) {
+    .service-card-wrapper {
+        flex-direction: row; /* Desktop: Sido-vid-sida */
+        justify-content: space-between;
+    }
+    .service-card {
+        flex-basis: calc(50% - 0.75rem); /* Gör att korten delar på utrymmet */
+    }
+}
+
+/* 8. FOOTER/KONTAKT */
+footer {
+    background-color: #120c08;
+    color: lightgray;
+    padding: 2rem 0;
+    text-align: center;
+}
+#footer-kontakt {
+    padding: 1rem;
+}
+.copyright {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* 9. FLEXBOX för Tjänste-lista (services.html) */
+.services-intro ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Låter listan flöda */
+    gap: 1rem;
+    justify-content: center; /* Centrera listan på mobil */
+    padding: 2rem 0;
+}
+
+.services-intro li {
+    background-color: #2a2a2a;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid #b8860b;
+}
+
+@media (min-width: 768px) {
+    .services-intro ul {
+        justify-content: flex-start; /* Lägg listan till vänster på desktop */
+        gap: 1.5rem;
+    }
+}
+/* 10. CSS GRID för Referenser (projekt.html) */
+.referens-kort-lista {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+.referens-kort-lista li {
+    background-color: #2a2a2a;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.referens-kort-lista img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+/* 2 kolumner på mellan-skärmar */
+@media (min-width: 600px) {
+    .referens-kort-lista {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 3 kolumner på desktop */
+@media (min-width: 992px) {
+    .referens-kort-lista {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
