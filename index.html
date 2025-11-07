@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start - SM BYGG & PROJEKTLEDNING</title>
-    <link rel="stylesheet" href="./style.css"> 
+    <link rel="stylesheet" href="style.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -13,10 +13,25 @@
     <header>
         <div class="header-content">
             <a href="index.html" title="Till Startsidan">
-                 <img class="logo" src="./bilder/images/logo.png" alt="SM BYGG & PROJEKTLEDNING Logo">
+                 <img class="logo" src="./bilder/images/loggo3.png" alt="SM Bygg & Projektledning logotyp">
             </a>
             
-            <nav aria-label="Huvudmeny">
+            <details class="mobile-menu-details">
+                <summary class="menu-toggle-button">
+                    Meny
+                </summary>
+                <nav aria-label="Mobil Huvudmeny" class="menu-content">
+                    <ul>
+                        <li><a href="index.html" class="active">Hem</a></li> 
+                        <li><a href="services.html">Tjänster</a></li>
+                        <li><a href="projekt.html">Referenser</a></li>
+                        <li><a href="about.html">Om Oss</a></li>
+                        <li><a href="#footer-kontakt">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <nav aria-label="Huvudmeny" class="desktop-nav">
                 <ul>
                     <li><a href="index.html" class="active">Hem</a></li>
                     <li><a href="services.html">Tjänster</a></li>
@@ -26,62 +41,84 @@
                 </ul>
             </nav>
         </div>
-       <h1 class="tagline">VÄLKOMMEN TILL EN BÄTTRE AFFÄR</h1> </header>
-    
-    <main>
-        <div class="container"> 
-            
-            <section class="hero">
-                <h2>Projektering, projektledning & byggledning</h2>
-                <p>Vi är övertygade om att enbart företag som följer etiska riktlinjer kan uppnå långsiktiga mål och vinna respekt och förtroende hos kunder och partners. Därför är etiska regler och värderingar en integrerad del av verksamheten inom SM Bygg & Projektledning AB.</p>
-            </section>
+    </header>
+
+    <main id="main-content">
+        <div class="container">
             
             <section class="projektering-info">
-                 <div class="projektering-bild-och-text"> <img src="bilder/images/home1.jpg" alt="Byggledare på plats med ritningar">
-                    <p class ="projektering-text-left">
-                     Projektering, projektledning och byggledning inom bygg och anläggning. 
-                    SM Bygg & Projektledning AB har kompetens för alla led i ett byggprojekt och kan vara med i tidiga skeden tills det att nyckeln sitter i låset.
-                     Med en mycket erfaren tjänsteman och egna yrkesarbetare kan vi garantera kvalitet i alla skeden av byggprocessen.
-                    Vår organisation är sammansvetsad och har ett kommunikativt arbetssätt där de får med alla att arbeta mot ett och samma mål - det vi vill kalla ett lyckat bygge.</p>
+                <h1 class="tagline">VÄLKOMMEN TILL EN BÄTTRE AFFÄR</h1>
+                <h2>Projektering, Projektledning & Byggledning</h2>
+                
+                <div class="projektering-bild-och-text">
+                    <div class="projektering-text-left">
+                        
+                        <p>Vi är övertygade om att enbart företag som följer etiska riktlinjer kan uppnå långsiktiga mål och vinna respekt och förtroende hos kunder och partners.</p>
+                        <p>Därför är etiska regler och värderingar en integrerad del av verksamheten inom SM Bygg & Projektledning AB. Vi fokuserar på förtroende, effektivitet och ärlighet i samarbetet med våra kunder och partners för att på så sätt uppnå hållbara och innovativa resultat med en hög kvalitetsstandard.</p>
+                        <p>SM Bygg & Projektledning AB tar självklart avstånd från korruption, diskriminering, mutor och andra beteenden som avviker från god affärssed.</p>
+                        <p>SM Bygg & Projektledning AB har kompetens för alla led i ett byggprojekt och kan vara med i tidiga skeden och hjälpa till med projektering, förstudier och bygglovshandlingar.</p>
+                        <a href="about.html" class="button">Läs mer om vårt arbetssätt</a>
+                    </div>
+                    <img src="bilder/images/home1.jpg" alt="Byggledare granskar byggplaner på plats" loading="lazy">
                 </div>
             </section>
             
-            <section class="about-values">
-                <h2>Våra Värderingar och arbetssätt</h2>
-                <div class ="about-values-grid">
-                    <div class="values-box"> <h3 class ="values-title">PLANERING</h3> 
-                         <p class="values-description">Grundliga förberedelser från start betyder färre överraskningar senare. </p></div>
-                    <div class="values-box"> <h3 class ="values-title">ÖPPENHET</h3> 
-                         <p class="values-description"> Transparens ger bättre kontroll över tid, kostnader och kvalitet. </p></div>
-                    <div class="values-box"> <h3 class ="values-title">RISKMINIRERING</h3>
-                         <p class="values-description">Genom att identifiera och hantera risker i ett tidigt skede kan vi minimera potentiella problem senare i projektet.</p></div>
-                    <div class="values-box"> <h3 class ="values-title">UPPFÖLJNINGEN</h3> 
-                        <p class="values-description">Vi följer alltid upp våra projekt noggrant för att säkerställa att allt går enligt plan.</p>
-                    <a href="https://projektpartnerab.se/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjExMCIsInRvZ2dsZSI6ZmFsc2V" class="values-link"></a>
-                        <a href="https://projektpartnerab.se/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjExMCIsInRvZ2dsZSI6ZmFsc2V9" class="values-link-mobile">Läs mer</a>
+            <section class="values">
+                <h2>Våra Värderingar</h2>
+                <div class="about-values-grid">
+                    <div class="values-box">
+                        <h3>FÖRTROENDE</h3>
+                        <p>Att alltid agera med integritet och pålitlighet i alla våra relationer.</p>
                     </div>
-                    <div class="values-box"> <h3 class ="values-title">SAMARBETE</h3>
-                         <p class="values-description">Ett nära samarbete med våra kunder och partners är avgörande för att nå framgång.</p></div>
-                    <div class="values-box"> <h3 class ="values-title">DREAMTEAM</h3> 
-                        <p class="values-description">Vårt team av experter arbetar tillsammans för att skapa de bästa lösningarna för våra kunder.</p></div>
+                    <div class="values-box">
+                        <h3>PLANERING</h3>
+                        <p>Grundliga förberedelser från start betyder färre överraskningar senare..</p>
+                    </div>
+                    <div class="values-box">
+                        <h3>ÖPPENHET</h3>
+                        <p>Transparens ger bättre kontroll över tid, kostnader och kvalitet.</p>
+                    </div>
+                    <div class="values-box">
+                        <h3>RISKMINIMERING</h3>
+                        <p>Genom att identifiera och hantera risker i ett tidigt skede kan vi minimera potentiella problem senare i projektet.</p>
+                    </div>
+                    <div class="values-box">
+                        <h3>EFFEKTIVITET</h3>
+                        <p>Att leverera projekt i tid och inom budget genom smart planering och optimerade processer.</p>
+                    </div>
+                    <div class="values-box">
+                        <h3>UPPFÖLJNINGEN</h3>
+                        <p>Vi följer alltid upp våra projekt noggrant för att säkerställa att allt går enligt plan</p>
+                    </div>
+                    <div class="values-box">
+                        <h3>ÄRLIGHET</h3>
+                        <p>Transparent kommunikation och raka besked för att bygga långsiktiga samarbeten.</p>
+                    </div>
+                    <div class="values-box">
+                        <h3>SAMARBETE</h3>
+                        <p>Ett nära samarbete med våra kunder och partners är avgörande för att nå framgång.</p>
+                    </div>
                 </div>
             </section>
             
             <section class="service-kort">
                 <h2>Våra Byggtjänster i fokus</h2>
-                <div class="service-card-wrapper"> <article class="service-card">
-                        <img class="service-image" src="bilder/images/home2.jpg" alt="Byggtjänster">
+                <div class="service-card-wrapper">
+                    <article class="service-card">
+                        <img class="service-image" src="bilder/home3.jpg" alt="Byggtjänster">
+                        <h3>Byggtjänster</h3>
                         <p>Vi erbjuder omfattande byggtjänster, från nybyggnation till renovering, med fokus på kvalitet och hållbarhet.</p>
                     </article>
                     <article class="service-card">
-                        <img class="service-image" src="bilder/home3.jpg" alt="Projektledning">
+                        <img class="service-image" src="bilder/images/home2.jpg" alt="Projektledning">
                         <h3>Projektledning</h3>
                         <p>Våra erfarna projektledare säkerställer att ditt projekt genomförs effektivt, inom budget och enligt tidsplan.</p>
                     </article>
                 </div>
             </section>
             
-        </div> </main>
+        </div> 
+    </main>
     
     <footer>
          <section id="footer-kontakt">
@@ -89,7 +126,7 @@
             <p>Välkommen att kontakta oss för offert eller om Ni vill diskutera det Ni vill ha utfört! </p>
             <p>Email: <a href="mailto:info@smbyggprojektledning.se">info@smbyggprojektledning.se</a> </p>
         </section>
-        <p class="copyright">&copy; 2024 SM BYGG & PROJEKTLEDNING. Alla rättigheter förbehållna.</p>
+        <p class="copyright">&copy; 2023 SM BYGG & PROJEKTLEDNING. Alla rättigheter förbehållna.</p>
     </footer>
     
 </body>

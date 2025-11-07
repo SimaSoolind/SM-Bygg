@@ -1,13 +1,13 @@
-/* Global Styles */
+/* Global Styles för alla element */
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Se till att padding och border inte ökar elementets totala bredd/höjd */
     margin: 0;
     padding: 0;
 }
 /* 1.a-sidans layout och typsnitt */
 body {
     font-family: 'Roboto', sans-serif;
-    color: lightgray; /* Vit/ljus text mot mörk bakgrund */
+    color: rgb(137, 132, 133); /* Vit/ljus text mot mörk bakgrund */
     line-height: 1.6;
     background-color: #1a1a1a; /* Svart bakgrund */
 }
@@ -19,7 +19,10 @@ body {
 }
 /* 2. Typografi och länkar (Guld/Brons) */
 h1, h2, h3 {
-    color: #8c835c; /* Brons/Guld färg för rubriker */
+    color: #b8860b; /* Brons/Guld färg för rubriker */
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1rem 0;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
@@ -29,63 +32,71 @@ a {
     text-decoration: none;
     transition: all 0.3s ease; /* Mjuk övergång för hover */
 }
-/* hover-effekt för länkar */
-a:hover, a:focus {
+/* hover-effekt för länkar (och focus för tillgänglighet) */
+a:hover, a:focus { 
     color: bisque;
     outline: 2px solid #b8860b;
 }
 /* listor och knappar */
 ul {
-    list-style-type: none;
+    list-style-type: none; /* TAR BORT ALLA PUNKTER */
     padding: 0;
 }
-/* 3. Mobil-först-Meny-styling och heder (FIXAD) */
+
+
+/* 3. Header Styling (Mobil-först) */
 header {
-    background-color: #120c08; /* Nästan svart header */
-    padding: 1rem 0;
-    border-bottom: none;
+    background-color: black; 
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(48, 3, 3, 0.4);
+    padding: 0.5rem 0; 
+    margin-bottom: 2rem;
 }
-.header-content { /* FIX: Använder rätt klassnamn, tidigare .heder-container */
+.header-content { 
     text-align: center;
     padding: 0 1rem;
     display: flex;
-    flex-direction: column; /* Mobil-layout: Stapla logga och nav under varandra */
+    flex-direction: column; /* Mobil: Stapla logga och meny vertikalt */
     align-items: center;
 }
 .logo {
-    max-width: 250px; /* Justerat för att vara framträdande men inte överväldigande på mobil */
+    max-width: 250px; 
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 .page-title, .tagline {
-    text-align: center;
-    padding: 0.5rem 0;
+    text-align: center; 
+    padding: 1rem 0;
     font-size: 1.8rem;
-    color: lightgray;
+    color: rgb(195, 181, 156);
 }
-nav ul {
+
+/* 3.A Desktop Navigering Menyn blir på sidan*/
+.desktop-nav ul { 
     display: flex;
     flex-wrap: wrap; 
-    justify-content: center;
+    justify-content: center; 
     gap: 0.5rem 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
-nav a {
+.desktop-nav a {
     padding: 0.3rem 0.6rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #b8860b;
+    color: #a99563;
 }
-nav a.active {
+/* Active-länk är densamma för mobil och desktop */
+.desktop-nav a.active {
     color: #101010;
     background-color: #c38d03;
     border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(212, 43, 43, 0.4);
 }
 
-/* 4. Media Queries - Responsiv Design (FIXAD) */
+/* 4. Media Queries - Responsiv Design (Desktop-header) */
 @media (min-width: 768px) {
     .header-content {
-        flex-direction: row; /* Desktop-layout: Lägg logga och nav bredvid varandra */
+        flex-direction: row; /* Desktop: Placera logga och meny sida vid sida */
         justify-content: space-between;
         align-items: center;
         max-width: 1200px;
@@ -94,16 +105,80 @@ nav a.active {
         text-align: left;
     }
     .logo {
-        max-width: 300px; /* Större logga på desktop */
+        max-width: 300px; 
         margin-bottom: 0;
     }
-    nav ul {
+    .desktop-nav ul {
         gap: 1.5rem;
     }
 }
 
-/* 5. Startsidans Värderingar-sektion GRID (NU FIXAD) */
-.about-values-grid { /* FIX: Korrigerat stavfel från .about-valuse-grid */
+
+/* 4.B Mobilmeny med Details/Summary (Interaktivitet #2) */
+
+/* Dölj meny-elementet som standard */
+.mobile-menu-details {
+    display: none; 
+}
+.menu-toggle-button {
+    list-style: none; /* VIKTIGT: Tar bort pilen från details-elementet */
+    cursor: pointer;
+    background-color: #090909;
+    color:  #b8860b;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+/* Stil för menyinnehållet när det är öppet */
+.menu-content ul {
+    flex-direction: column;
+    padding: 1rem 0;
+}
+.menu-content li {
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+/* VISA MOBILMENYN PÅ SMÅ SKÄRMAR */
+@media (max-width: 767px) {
+    /* Visa details-komponenten på mobil */
+    .mobile-menu-details {
+        display: block;
+        width: 100%;
+    }
+    /* DÖLJ den gamla desktop-naven när skärmen är liten */
+    .desktop-nav { 
+        display: none; 
+    }
+    /* Justera header-innehållet för mobil */
+    .header-content {
+        flex-direction: column; 
+    }
+}
+
+/* DÖLJ MOBILMENYN PÅ STORA SKÄRMAR */
+@media (min-width: 768px) {
+    /* Dölj details-komponenten på desktop */
+    .mobile-menu-details {
+        display: none; 
+    }
+    /* VISA den gamla desktop-naven */
+    .desktop-nav { 
+        display: block; 
+    }
+}
+
+/*  Döljer den standardpil som Chrome/Edge lägger till */
+.menu-toggle-button::-webkit-details-marker {
+    display: none;
+}
+/*sidans olika sektioner av CSS GRID och FLEXBOX för layout */
+
+
+/* 5. Startsidans Värderingar-sektion GRID */
+.about-values-grid { 
     display: grid;
     gap: 1.5rem;
     padding: 2rem 0;
@@ -114,27 +189,24 @@ nav a.active {
     border: 1px solid #444;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(205, 161, 73, 0.4);
     transition: all 0.3s ease;
 }
-.values-box:hover { /* FIX: Korrigerat syntax för hover-effekt */
+.values-box:hover { 
     background-color: #3a3a3a;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 6px 12px rgba(92, 17, 17, 0.6);
     transform: translateY(-5px);
 } 
-/* värderingstitlar */
-.values-box h3 { /* FIX: Korrigerat syntax för h3 */
+.values-box h3 { 
     margin-bottom: 0.5rem;
     color: #b8860b;
 }
-
 /* GRID LAYOUT (Surfplatta - 2 Kolumner) */
 @media (min-width: 600px) {
     .about-values-grid {
         grid-template-columns: 1fr 1fr;
     }
 }
-
 /* GRID LAYOUT (Desktop - 3 Kolumner) */
 @media (min-width: 992px) {
     .about-values-grid {
@@ -142,43 +214,40 @@ nav a.active {
     }
 }
 
-/* 6. FLEXBOX för Bild/Text-layout (projektering-info) */
+/* 6. FLEXBOX för Bild/Text-layout (projektering-info -index-sidan) */
 .projektering-bild-och-text {
     display: flex;
-    flex-direction: column; /* Mobil-först: Stapla */
+    flex-direction: column; 
     gap: 1.5rem;
     margin-bottom: 3rem;
     align-items: center;
 }
-
 .projektering-bild-och-text img {
-    width: 100%;
+    width: 150%;
     max-width: 500px; 
     height: auto;
     border-radius: 6px;
+    loading: lazy; 
 }
-
 @media (min-width: 768px) {
     .projektering-bild-och-text {
-        flex-direction: row; /* Desktop: Sido-vid-sida */
+        flex-direction: row-reverse; 
         align-items: flex-start;
     }
-    
     .projektering-bild-och-text img {
         flex-basis: 40%; 
         min-width: 300px;
     }
-    
     .projektering-text-left {
         flex-basis: 60%;
         padding-left: 2rem;
     }
 }
 
-/* 7. FLEXBOX för Service Cards (Tjänster-sektion) */
+/* 7. FLEXBOX för Service Cards (Tjänster-sektion på index-sidan) */
 .service-card-wrapper {
     display: flex;
-    flex-direction: column; /* Mobil: Stapla */
+    flex-direction: column; 
     gap: 1.5rem;
     padding: 2rem 0;
 }
@@ -186,46 +255,29 @@ nav a.active {
     background-color: #2a2a2a;
     border-radius: 8px;
     overflow: hidden; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(205, 161, 73, 0.4);
     text-align: center;
 }
 .service-card img {
     width: 100%;
-    height: auto;
-    max-height: 200px;
+    height: 200px; /* Gör bilderna i servicekorten enhetliga */
     object-fit: cover;
+    loading: lazy; 
 }
-/* 10. CSS GRID för Referenser (projekt.html) */
-/* ... (Koden för .referens-kort-lista och li är oförändrad) ... */
-
-.referens-kort-lista img {
-    width: 100%;
-    /* Lägg till en fast höjd för alla bilder */
-    height: 200px; /* Ändra 200px till det du tycker ser bäst ut */ 
-    
-    /* NYCKELN: Fyll höjden/bredden och beskär det som inte får plats */
-    object-fit: cover; 
-    
-    border-radius: 4px;
-    margin-bottom: 0.5rem;
-}
-
-/* ... (Resten av Media Queries för Grid är oförändrad) ... */
-
 @media (min-width: 768px) {
     .service-card-wrapper {
-        flex-direction: row; /* Desktop: Sido-vid-sida */
+        flex-direction: row; 
         justify-content: space-between;
     }
     .service-card {
-        flex-basis: calc(50% - 0.75rem); /* Gör att korten delar på utrymmet */
+        flex-basis: calc(50% - 0.75rem); 
     }
 }
 
 /* 8. FOOTER/KONTAKT */
 footer {
-    background-color: #120c08;
-    color: lightgray;
+    background-color: black;
+    color: rgb(137, 132, 133);
     padding: 2rem 0;
     text-align: center;
 }
@@ -242,12 +294,11 @@ footer {
 .services-intro ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap; /* Låter listan flöda */
+    flex-wrap: wrap; 
     gap: 1rem;
-    justify-content: center; /* Centrera listan på mobil */
+    justify-content: center; 
     padding: 2rem 0;
 }
-
 .services-intro li {
     background-color: #2a2a2a;
     padding: 0.5rem 1rem;
@@ -255,42 +306,183 @@ footer {
     font-weight: bold;
     border: 1px solid #b8860b;
 }
-
 @media (min-width: 768px) {
     .services-intro ul {
-        justify-content: flex-start; /* Lägg listan till vänster på desktop */
+        justify-content: flex-start; 
         gap: 1.5rem;
     }
 }
+
 /* 10. CSS GRID för Referenser (projekt.html) */
 .referens-kort-lista {
-    display: grid;
+    display: grid; 
     gap: 2rem;
     padding: 2rem 0;
 }
 .referens-kort-lista li {
+    border: 1px solid #b8860b;
     background-color: #2a2a2a;
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(174, 135, 43, 0.4); 
+    display: flex; 
+    flex-direction: column;
 }
 .referens-kort-lista img {
     width: 100%;
-    height: auto;
+    height: 200px; /* Fast höjd för alla galleribilder */
+    object-fit: contain; 
+    background-color: #2a2a2a; 
     border-radius: 4px;
     margin-bottom: 0.5rem;
 }
-
 /* 2 kolumner på mellan-skärmar */
 @media (min-width: 600px) {
     .referens-kort-lista {
         grid-template-columns: 1fr 1fr;
     }
 }
-
 /* 3 kolumner på desktop */
 @media (min-width: 992px) {
     .referens-kort-lista {
         grid-template-columns: 1fr 1fr 1fr;
     }
+}
+
+/* 11. FLEXBOX för Om Oss-sidan (about.html) */
+/* 1. GRUNDLAYOUT: Mobil-först */
+.mission-text-och-bild,
+.team-member {
+    display: flex;
+    flex-direction: column; 
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: center; 
+}
+/* 2. STYLING AV BILD/TEXT (Figuren) */
+.mission-figure,
+.team-figure {
+    background-color: #2a2a2a; 
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; 
+    max-width: 100%; 
+}
+.mission-figure:hover,
+.team-figure:hover {
+    transform: translateY(-8px) scale(1.02); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+/* 4. BILDSTORLEK: Gör bilden mindre och enhetlig */
+.mission-figure img,
+.team-figure img {
+    width: 100%;
+    height: 250px; /* Fast höjd på mobil */
+    object-fit: cover; 
+    border-radius: 8px 8px 0 0; 
+    loading: lazy; 
+}
+/* 5. BILDSUBTEXT (figcaption) */
+.mission-figure figcaption,
+.team-figure figcaption {
+    font-size: 1rem; 
+    color: #b8860b; 
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+/* MEDIA QUERY: Desktop (Sido vid sida) */
+@media (min-width: 900px) {
+    .mission-text-och-bild,
+    .team-member {
+        flex-direction: row; 
+        align-items: flex-start; 
+    }
+    .mission-figure img,
+    .team-figure img {
+        height: 300px; /* Fast, enhetlig höjd på desktop */
+    }
+
+    /* Mission - TEXT VÄNSTER, BILD HÖGER */
+    .mission-text-och-bild {
+        flex-direction: row-reverse; 
+    }
+    .mission-text-wrapper {
+        flex: 1; 
+        padding-right: 2rem;
+    }
+    .mission-figure {
+        flex-basis: 50%; 
+        max-width: 50%;
+    }
+
+    /* Team - BILD VÄNSTER, TEXT HÖGER */
+    .team-member {
+        flex-direction: row; 
+    }
+    .team-figure {
+        flex-basis: 50%; 
+        max-width: 50%;
+    }
+    .team-text-wrapper {
+        flex: 1; 
+        padding-left: 2rem;
+    }
+}
+
+
+/* 12. FLEXBOX för Tjänste-detaljer (services.html) */
+.service-detail-block {
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+.service-detail-block img {
+    width: 100%;
+    height: 250px; /* Fast höjd på mobil */
+    object-fit: cover; 
+
+}
+.service-detail-content {
+    padding: 1.5rem;
+}
+@media (min-width: 768px) {
+    .service-detail-block {
+        flex-direction: row; 
+        align-items: center;
+    }
+    .service-detail-block img {
+        height: 300px; /* Fast höjd på desktop */
+        flex-basis: 40%;
+        min-width: 40%; 
+        max-width: 40%;
+    }
+    .service-detail-block.layout-reverse {
+        flex-direction: row-reverse;
+    }
+    .service-detail-content {
+        flex-basis: 60%;
+        padding-right: 1.5rem;
+    }
+    .service-detail-block.layout-reverse .service-detail-content {
+        padding-right: 0;
+        padding-left: 1.5rem;
+    }
+}
+
+
+
+/* 13B. Optimering för Prestanda */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    loading: lazy; /* Lata laddning av bilder för bättre prestanda */
 }

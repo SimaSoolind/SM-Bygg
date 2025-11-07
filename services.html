@@ -3,35 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Tjänster - SM BYGG & PROJEKTLEDNING</title>
 </head>
 <body>
-    <header>
-        <div class="header-content"> 
+        <header>
+        <div class="header-content">
             <a href="index.html" title="Till Startsidan">
-                <img class="logo" src="./bilder/images/logo.png" alt="SM Bygg & Projektledning logotyp">
+                 <img class="logo" src="./bilder/images/loggo3.png" alt="SM Bygg & Projektledning logotyp">
             </a>
-            <nav aria-label="Huvudmeny">
+            
+            <details class="mobile-menu-details">
+                <summary class="menu-toggle-button">
+                    Meny
+                </summary>
+                <nav aria-label="Mobil Huvudmeny" class="menu-content">
+                    <ul>
+                        <li><a href="index.html" >Hem</a></li> 
+                        <li><a href="services.html" class="active">Tjänster</a></li>
+                        <li><a href="projekt.html">Referenser</a></li>
+                        <li><a href="about.html">Om Oss</a></li>
+                        <li><a href="#footer-kontakt">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </details>
+
+            <nav aria-label="Huvudmeny" class="desktop-nav">
                 <ul>
-                   <li><a href="index.html">Hem</a></li>
-                   <li><a href="about.html">Om Oss</a></li>
-                   <li><a href="services.html" class="active">Tjänster</a></li>
-                   <li><a href="projekt.html">Referenser</a></li> 
-                   <li><a href="#footer-kontakt">Kontakt</a></li>
+                    <li><a href="index.html" >Hem</a></li>
+                    <li><a href="services.html" class="active">Tjänster</a></li>
+                    <li><a href="projekt.html">Referenser</a></li>
+                    <li><a href="about.html">Om Oss</a></li>
+                    <li><a href="#footer-kontakt">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
-        <h1 class="page-title">TJÄNSTER</h1>
     </header>
-    
-    <main **id="main-content"**> 
+    <h1 class="page-title">TJÄNSTER</h1>
+    <main id="main-content"> 
         <div class="container">
             <section class="services-intro">
                 <h2>Våra Huvudtjänster</h2>
-                <p><img src="bilder/images/images (1).jpeg" alt="Våra Huvudtjänster"></p>
                 <p>Vi erbjuder ett brett utbud av tjänster inom bygg och projektledning, inklusive:</p>
                 <ul>
                     <li>Renovering</li>
@@ -43,7 +58,37 @@
                     <li>Arbetsledning</li>
                 </ul>
             </section>
-        </div> </main>
+            
+            <section class="service-details">
+                <article class="service-detail-block">
+                    <img src="bilder/images/bygg-bilder.jpg" alt="Bild på modern renovering">
+                    <div class="service-detail-content">
+                        <h3>Renovering & Ombyggnad</h3>
+                        <p>Vi hanterar alla typer av renoveringsprojekt, från kök och badrum till fullständiga fastighetsuppgraderingar. Vi säkerställer att varje detalj uppfyller högsta kvalitetsstandard.</p>
+                        <p>Våra tjänster inkluderar planering, rivning, installation av nya strukturer, ytskikt samt el- och VVS-arbeten genom pålitliga underleverantörer.</p>
+                    </div>
+                </article>
+                
+                <article class="service-detail-block layout-reverse">
+                    <img src="bilder/images/byggnad2.jpg" alt="Bild på tillbyggnad av hus">
+                    <div class="service-detail-content">
+                        <h3>Tillbyggnad & Nybyggnation</h3>
+                        <p>Behöver du mer utrymme? Vi hjälper till med tillbyggnader, från första ritning till färdig konstruktion. Vi hanterar även nybyggnationer av bostäder och kommersiella fastigheter.</p>
+                        <p>Vår expertis garanterar effektiva byggprocesser och moderna, hållbara lösningar.</p>
+                    </div>
+                </article>
+                
+                <article class="service-detail-block">
+                    <img src="bilder/images/projekt-2.jpg" alt="Bild på byggnadsledare som granskar ritning">
+                    <div class="service-detail-content">
+                        <h3>Projekt- & Arbetsledning</h3>
+                        <p>Våra erfarna projektledare tar fullt ansvar för ditt projekt, vilket garanterar att det slutförs i tid, inom budget och med högsta kvalitet.</p>
+                        <p>Vi koordinerar alla yrkesgrupper, sköter kommunikationen och hanterar byggledning och arbetsmiljöfrågor på plats.</p>
+                    </div>
+                </article>
+            </section>
+        </div> 
+    </main>
     
     <footer>
         <section id="footer-kontakt">
