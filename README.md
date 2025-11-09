@@ -1,4 +1,4 @@
-# SM BYGG & PROJEKTLEDNING AB – Webbplatsdokumentation
+ SM BYGG & PROJEKTLEDNING AB – Webbplatsdokumentation
 
 Detta projekt är en responsiv webbplats byggd i HTML och CSS. Fokus har legat på **Mobile-First**, **Tillgänglighet (WCAG)** och användning av moderna CSS-layouter.
 
